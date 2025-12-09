@@ -15,6 +15,8 @@ DTOs para entrada de dados
 Entidades totalmente tipadas em TypeScript
 
 🏗 📦 Estrutura da Aplicação
+
+
 src/
  ├── categoria/
  │    ├── categoria.controller.ts
@@ -31,9 +33,13 @@ src/
  ├── app.module.ts
  └── main.ts
 
+ 
+
 🗄 📌 Diagrama DER (Entidade-Relacionamento)
 
 Cada Categoria possui muitos produtos, enquanto cada Produto pertence a uma única categoria.
+
+
 
 +-----------------+        1    N       +------------------+
 |   CATEGORIA     |-------------------- |     PRODUTO      |
@@ -44,6 +50,7 @@ Cada Categoria possui muitos produtos, enquanto cada Produto pertence a uma úni
 +-----------------+                     | estoque          |
                                         | categoria_id  FK |
                                         +------------------+
+                                        
 
 🚀 Rotas da API
 📁 Produtos
