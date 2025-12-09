@@ -1,89 +1,110 @@
-📘 Game Store API (NestJS)
+🎮 Game Store API – CRUD Completo com NestJS
+<p align="center"> <img src="https://img.shields.io/badge/NestJS-v10-red" /> <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" /> <img src="https://img.shields.io/badge/Database-MySQL-blue" /> <img src="https://img.shields.io/badge/Language-TypeScript-3178c6" /> <img src="https://img.shields.io/badge/ORM-TypeORM-orange" /> </p>
+🧾 Descrição do Projeto
+
+A Game Store API é uma aplicação construída com NestJS + TypeORM + MySQL, permitindo o gerenciamento completo de Produtos (Games) e Categorias, incluindo relacionamento One-to-Many.
+
+Essa API foi criada para fins acadêmicos, seguindo boas práticas como:
+
+Arquitetura em camadas (Controller → Service → Repository/TypeORM)
+
+Validações com Class-Validator
+
+DTOs para entrada de dados
+
+Entidades totalmente tipadas em TypeScript
+
+🏗 📦 Estrutura da Aplicação
+src/
+ ├── categoria/
+ │    ├── categoria.controller.ts
+ │    ├── categoria.service.ts
+ │    ├── categoria.entity.ts
+ │    ├── dto/
+ │    └── ...
+ ├── produto/
+ │    ├── produto.controller.ts
+ │    ├── produto.service.ts
+ │    ├── produto.entity.ts
+ │    ├── dto/
+ │    └── ...
+ ├── app.module.ts
+ └── main.ts
+
+🗄 📌 Diagrama DER (Entidade-Relacionamento)
+
+Cada Categoria possui muitos produtos, enquanto cada Produto pertence a uma única categoria.
+
++-----------------+        1    N       +------------------+
+|   CATEGORIA     |-------------------- |     PRODUTO      |
++-----------------+                     +------------------+
+| id_categoria PK |          🔗        | id_game PK       |
+| nome            |                     | nome             |
+| descricao       |                     | preco            |
++-----------------+                     | estoque          |
+                                        | categoria_id  FK |
+                                        +------------------+
+
+🚀 Rotas da API
+📁 Produtos
+➕ Criar Produto
+POST /produtos
 
 
+Body
 
+{
+  "nome": "FIFA 25",
+  "preco": 299.90,
+  "estoque": 20,
+  "categoria": 1
+}
 
+📄 Listar Todos
+GET /produtos
 
+🔍 Buscar por ID
+GET /produtos/:id
 
+✏ Atualizar
+PUT /produtos/:id
 
+❌ Deletar
+DELETE /produtos/:id
 
-API backend desenvolvida em NestJS para gerenciar uma Loja de Games, incluindo módulos de produtos, categorias, clientes e pedidos.
-Organizada de forma modular, escalável e seguindo boas práticas profissionais.
+🗂 Categorias
+➕ Criar Categoria
+POST /categorias
 
-🚀 Tecnologias Utilizadas
+📄 Listar Todas
+GET /categorias
 
-NestJS
+🧪 Exemplos de Teste no Insomnia / Thunder Client
+✔ Testar criação de categoria
+POST http://localhost:3000/categorias
 
-TypeScript
+✔ Testar criação de produto com categoria
+POST http://localhost:3000/produtos
 
-Node.js (18+)
+✔ Testar filtro por ID
+GET http://localhost:3000/produtos/1
 
-TypeORM
-
-MySQL
-
-Insomnia (testes de rotas)
-
-NPM ou Yarn
-
-📦 Como rodar o projeto
-🔧 1. Instale as dependências
+🛠 Tecnologias Utilizadas
+Tecnologia	Uso
+NestJS	Estrutura principal
+TypeScript	Tipagem estática
+TypeORM	ORM e conexão com MySQL
+MySQL	Banco relacional
+Class-Validator	Validações de DTO
+Insomnia	Testes de API
+📥 Clonando e Rodando o Projeto
+git clone https://github.com/SEU_USUARIO/game-store-api.git
+cd game-store-api
 npm install
-
-🛠 2. Configure o banco de dados
-
-Crie um banco no MySQL:
-
-CREATE DATABASE game_store;
-
-
-Crie um arquivo .env na raiz do projeto:
-
-DB_HOST=localhost
-DB_PORT=3306
-DB_USERNAME=root
-DB_PASSWORD=123456
-DB_DATABASE=game_store
-
-▶️ 3. Execute o projeto
 npm run start:dev
 
-
-Servidor iniciará em:
-
-http://localhost:3000
-
-🔌 Testes com Insomnia
-
-Utilize o Insomnia para testar os endpoints.
-
-Quando as rotas forem criadas, adicionarei aqui uma coleção .json exportada para facilitar os testes.
-
-📁 Estrutura Inicial do Projeto
-src/
-  app.module.ts
-  main.ts
-
-
-Estrutura prevista:
-
-src/
-  modules/
-    produtos/
-    categorias/
-    clientes/
-    pedidos/
-  database/
-
-📌 Status do Projeto
-
-🚧 Projeto em desenvolvimento (MVP)
-Módulos e funcionalidades sendo implementados gradualmente.
-
 👤 Autora
+Nayane Rodrigues Oi Backend Developer
 
-Nayane Rodrigues
-Backend Developer
-
-🔗 GitHub: https://github.com/nayaneoi
+🔗 GitHub: https://github.com/nayaneoi 
 🔗 LinkedIn: in/nayanerodriguesoi
