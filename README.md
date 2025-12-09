@@ -17,21 +17,8 @@ Entidades totalmente tipadas em TypeScript
 🏗 📦 Estrutura da Aplicação
 
 
-src/
- ├── categoria/
- │    ├── categoria.controller.ts
- │    ├── categoria.service.ts
- │    ├── categoria.entity.ts
- │    ├── dto/
- │    └── ...
- ├── produto/
- │    ├── produto.controller.ts
- │    ├── produto.service.ts
- │    ├── produto.entity.ts
- │    ├── dto/
- │    └── ...
- ├── app.module.ts
- └── main.ts
+<img width="232" height="310" alt="image" src="https://github.com/user-attachments/assets/a3725a05-06aa-40eb-b340-1cf55d669254" />
+
 
  
 
@@ -40,16 +27,8 @@ src/
 Cada Categoria possui muitos produtos, enquanto cada Produto pertence a uma única categoria.
 
 
+<img width="430" height="227" alt="image" src="https://github.com/user-attachments/assets/893d99c5-e888-4d04-a857-1191b913397b" />
 
-+-----------------+        1    N       +------------------+
-|   CATEGORIA     |-------------------- |     PRODUTO      |
-+-----------------+                     +------------------+
-| id_categoria PK |          🔗        | id_game PK       |
-| nome            |                     | nome             |
-| descricao       |                     | preco            |
-+-----------------+                     | estoque          |
-                                        | categoria_id  FK |
-                                        +------------------+
                                         
 
 🚀 Rotas da API
